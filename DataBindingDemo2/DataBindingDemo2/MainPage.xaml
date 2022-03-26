@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataBindingDemo2.MainPage">
+
+    <StackLayout>
+        <Label                        
+            BindingContext="{x:Reference Name=slider}"
+            Rotation="{Binding Path=Value}"
+            Text="ROTATION"
+            FontAttributes="Bold"
+            FontSize="Large"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            ></Label>
+        <Slider x:Name="slider"
+            Maximum="360"
+            VerticalOptions="CenterAndExpand"
+            />
+
+        <Label Text="Hola"
+               BindingContext="{x:Reference Name=slider}"
+               FontSize="{Binding Path =Value}"/>
+        
+        <Entry BindingContext="{x:Reference Name=slider}"
+               Text="{Binding Path =Value, Mode=OneWay}"                
+            />
+
+
+    </StackLayout>
+
+</ContentPage>
